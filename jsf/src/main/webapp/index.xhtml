@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+               xmlns:f="http://java.sun.com/jsf/html"
+               xmlns:p="http://primefaces.org/ui">
+
+    <html>
+    <head>
+        <title>Employee Attendance System</title>
+        <link rel="stylesheet" type="text/css" href="theme.css"/>
+    </head>
+    <body>
+    <h1>Employee Attendance System</h1>
+
+    <p:panel header="Select Department">
+        <p:selectOneMenu id="departmentSelect" value="#{departmentBean.selectedDepartment}">
+            <f:selectItems value="#{departmentBean.departments}" var="d" itemLabel="#{d.name}" itemValue="#{d}"/>
+        </p:selectOneMenu>
+        <p:commandButton value="View Employees" action="#{employeeBean.init}"/>
+        <p:commandButton value="Mark Attendance" action="#{attendanceBean.init}"/>
+    </p:panel>
+
+    <ui:insert name="content">
+        </ui:insert>
+
+    </body>
+    </html>
+</ui:composition>
