@@ -22,17 +22,28 @@ public class AttendanceService {
 	@PersistenceContext
 	private EntityManager em;
 
+	/**
+	 * 
+	 * @param employee
+	 * @param date
+	 */
 	public void markAttendance(Employee employee, Date date) {
 		Attendance attendance = new Attendance();
 		attendance.setEmployee(employee);
 		attendance.setDate(date);
 		attendance.setTime(new Time(System.currentTimeMillis()));
-		
+
 		em.persist(attendance);
 	}
-	
-	public List<Attendance> findAttendanceByEmployee(Employee employee){
-		return em.createQuery("Select a from "+Attendance.class.getName()+" a where a.employee = :employee", Attendance.class).setParameter("employee", employee).getResultList();
-		
+
+	/**
+	 * 
+	 * @param employee
+	 * @return
+	 */
+	public List<Attendance> findAttendanceByEmployee(Employee employee) {
+		return em.createQuery("Select a from " + Attendance.class.getName() + " a where a.employee = :employee",
+				Attendance.class).setParameter("employee", employee).getResultList();
+
 	}
 }

@@ -36,5 +36,6 @@
 	<modules>
 		<module>common-jpa</module>
 		<module>jsf</module>
+		<module>spring-thymeleaf</module>
 	</modules>
 </project>

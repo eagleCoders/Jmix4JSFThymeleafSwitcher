@@ -16,4 +16,9 @@ public class EmployeeService {
 	public List<Employee> findAllEmployees(){
 		return em.createQuery("Select e from "+Employee.class.getName()+" e ", Employee.class).getResultList();
 	}
+	
+	public Employee findEmployeeByName(String employeeName) {
+		return em.createQuery("Select e from "+Employee.class.getName()+" e where e.name = :empName", Employee.class)
+				.setParameter("empName", employeeName).getSingleResult();
+	}
 }
