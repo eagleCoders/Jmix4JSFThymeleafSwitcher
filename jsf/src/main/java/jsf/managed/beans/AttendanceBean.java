@@ -68,9 +68,6 @@ public class AttendanceBean {
 	 * @return the markAttendance
 	 */
 	public Attendance getMarkAttendance() {
-		
-		performAttendance(getSelectedEmployee());
-		
 		return markAttendance;
 	}
 
@@ -79,12 +76,7 @@ public class AttendanceBean {
 	 */
 	public void setMarkAttendance(Attendance markAttendance) {
 		this.markAttendance = markAttendance;
-	}
-
-
-
-	public void performAttendance(Employee employee) {
-		markAttendance(employee);
+		performAttendance(getSelectedEmployee());
 	}
 
 	/**
@@ -105,7 +97,7 @@ public class AttendanceBean {
 	 * 
 	 * @param employee
 	 */
-	private void markAttendance(Employee employee) {
+	private void performAttendance(Employee employee) {
 		attendanceService.markAttendance(employee, Date.from(Instant.now()));
 	}
 	

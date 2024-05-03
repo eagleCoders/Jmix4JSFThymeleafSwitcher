@@ -30,13 +30,18 @@ public class DepartmentBean {
 	
 	private Department selectedDepartment;
 	
-
+	/**
+	 * 
+	 */
+	public void init() {
+		departments = getAllDepartments();
+	}
 	
 	/**
 	 * @return the departments
 	 */
 	public List<Department> getDepartments() {
-		return getAllDepartments();
+		return departments;
 	}
 
 	/**
@@ -49,8 +54,8 @@ public class DepartmentBean {
 	/**
 	 * @return the selectedDepartment
 	 */
-	public Department getSelectedDepartment(Department department) {
-		return getDepartmentByName(department.getName());
+	public Department getSelectedDepartment() {
+		return selectedDepartment;
 	}
 
 	/**

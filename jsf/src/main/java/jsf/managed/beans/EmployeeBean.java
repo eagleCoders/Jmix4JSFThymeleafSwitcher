@@ -31,6 +31,13 @@ public class EmployeeBean {
 	
 	/**
 	 * 
+	 */
+	public void init() {
+		employees = getAllEmployees();
+	}
+	
+	/**
+	 * 
 	 * @return
 	 */
 	public EmployeeService getEmployeeService() {
