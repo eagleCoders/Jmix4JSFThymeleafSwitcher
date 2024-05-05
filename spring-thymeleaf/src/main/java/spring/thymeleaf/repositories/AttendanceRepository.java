@@ -27,5 +27,4 @@ public interface AttendanceRepository extends JpaRepository<Attendance, UUID> {
 	@Query("SElECT u from common.beans.Attendance u where u.date = :date")
 	List<Attendance> findAttendancebyDate(@Param("date") Date date);
 	
-	void markAttendance(Employee employee, Date date);
 }
