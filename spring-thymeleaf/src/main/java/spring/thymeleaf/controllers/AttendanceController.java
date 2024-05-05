@@ -6,7 +6,7 @@ package spring.thymeleaf.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import spring.thymeleaf.interfaces.AttendanceService;
+import spring.thymeleaf.repositories.AttendanceRepository;
 
 /**
  * 
@@ -15,5 +15,5 @@ import spring.thymeleaf.interfaces.AttendanceService;
 public class AttendanceController {
 
 	@Autowired
-	AttendanceService attendanceService;
+	AttendanceRepository attendanceService;
 }

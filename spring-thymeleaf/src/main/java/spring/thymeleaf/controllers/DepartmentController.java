@@ -6,7 +6,7 @@ package spring.thymeleaf.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import spring.thymeleaf.interfaces.DepartmentServices;
+import spring.thymeleaf.repositories.DepartmentRepository;
 
 /**
  * 
@@ -15,5 +15,5 @@ import spring.thymeleaf.interfaces.DepartmentServices;
 public class DepartmentController {
 
 	@Autowired
-	DepartmentServices departmentServices;
+	DepartmentRepository departmentServices;
 }
