@@ -6,49 +6,18 @@ package spring.thymeleaf.services;
 import java.util.List;
 import java.util.UUID;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import common.beans.Department;
-import spring.thymeleaf.repositories.DepartmentRepository;
 
 /**
  * 
  */
-public class DepartmentService {
+public interface DepartmentService {
 
-	@Autowired
-	DepartmentRepository departmentRepository;
+	public List<Department> findAllDepartments();
 	
-	/**
-	 * 
-	 * @return
-	 */
-	public List<Department> findAllDepartments(){
-		return departmentRepository.findAll();
-	}
+	public Department findDepartmentById(UUID id);
 	
-	/**
-	 * 
-	 * @param id
-	 * @return
-	 */
-	public Department findDepartmentById(UUID id) {
-		return departmentRepository.findDepartmentById(id);
-	}
+	public void saveDepartment(Department department);
 	
-	/**
-	 * 
-	 * @param department
-	 */
-	public void modifyDepartment(Department department) {
-		departmentRepository.saveAndFlush(department);
-	}
-	
-	/**
-	 * 
-	 * @param department
-	 */
-	public void deleteDepartment(Department department) {
-		departmentRepository.delete(department);
-	}
+	public void deleteDepartment(Department department);
 }

@@ -3,66 +3,25 @@
  */
 package spring.thymeleaf.services;
 
-import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import common.beans.Attendance;
 import common.beans.Employee;
-import spring.thymeleaf.repositories.AttendanceRepository;
 
 /**
  * 
  */
-public class AttendanceService {
+public interface AttendanceService {
 
-	@Autowired
-	AttendanceRepository attendanceRepository;
+	public List<Attendance> findAllAttendanceOfEmployee(Employee employee);
 	
-	/**
-	 * 
-	 * @param employee
-	 * @return
-	 */
-	public List<Attendance> findAllAttendanceOfEmployee(Employee employee){
-		return attendanceRepository.findAttendanceByEmployee(employee);
-	}
+	public List<Attendance> findAttendanceByDate(Date date);
 	
-	/**
-	 * 
-	 * @param attendance
-	 */
-	public void modifyAttendance(Attendance attendance) {
-		attendanceRepository.saveAndFlush(attendance);
-	}
+	public void markAttendance(Employee employee, Date date);
 	
-	/**
-	 * 
-	 * @param employee
-	 * @param date
-	 */
-	public void deleteAttendance(Employee employee, Date date) {
-		Attendance attendance = new Attendance();
-		attendance.setEmployee(employee);
-		attendance.setDate(date);
-		
-		attendanceRepository.delete(attendance);
-	}
+	public void saveAttendance(Attendance attendance);
 	
+	public void deleteAttendance(Employee employee, Date date);
 	
-	/**
-	 * 
-	 * @param employee
-	 * @param date
-	 */
-	public void markAttendance(Employee employee, Date date) {
-		Attendance attendance = new Attendance();
-		attendance.setEmployee(employee);
-		attendance.setDate(date);
-		attendance.setTime(new Time(System.currentTimeMillis()));
-		
-		attendanceRepository.saveAndFlush(attendance);
-	}
 }
