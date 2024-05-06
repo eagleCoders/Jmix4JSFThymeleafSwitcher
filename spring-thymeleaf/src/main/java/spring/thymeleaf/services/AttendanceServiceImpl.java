@@ -8,16 +8,17 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import common.beans.Attendance;
 import common.beans.Employee;
+import jakarta.transaction.Transactional;
 import spring.thymeleaf.repositories.AttendanceRepository;
 
 /**
  * 
  */
-@Component
+@Service
 public class AttendanceServiceImpl implements AttendanceService {
 
 	@Autowired
@@ -29,6 +30,7 @@ public class AttendanceServiceImpl implements AttendanceService {
 	 * @return
 	 */
 	@Override
+	@Transactional
 	public List<Attendance> findAllAttendanceOfEmployee(Employee employee){
 		return attendanceRepository.findAttendanceByEmployee(employee);
 	}
@@ -40,6 +42,7 @@ public class AttendanceServiceImpl implements AttendanceService {
 	 * @return
 	 */
 	@Override
+	@Transactional
 	public List<Attendance> findAttendanceByDate(Date date){
 		return attendanceRepository.findAttendancebyDate(date);
 	}
@@ -49,6 +52,7 @@ public class AttendanceServiceImpl implements AttendanceService {
 	 * @param attendance
 	 */
 	@Override
+	@Transactional
 	public void saveAttendance(Attendance attendance) {
 		attendanceRepository.saveAndFlush(attendance);
 	}
@@ -59,6 +63,7 @@ public class AttendanceServiceImpl implements AttendanceService {
 	 * @param date
 	 */
 	@Override
+	@Transactional
 	public void deleteAttendance(Employee employee, Date date) {
 		Attendance attendance = new Attendance();
 		attendance.setEmployee(employee);
@@ -74,6 +79,7 @@ public class AttendanceServiceImpl implements AttendanceService {
 	 * @param date
 	 */
 	@Override
+	@Transactional
 	public void markAttendance(Employee employee, Date date) {
 		Attendance attendance = new Attendance();
 		attendance.setEmployee(employee);

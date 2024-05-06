@@ -4,15 +4,16 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import common.beans.Employee;
+import jakarta.transaction.Transactional;
 import spring.thymeleaf.repositories.EmployeeRepository;
 
 /**
  * 
  */
-@Component
+@Service
 public class EmployeeServiceImpl implements EmployeeService{
 
 	@Autowired
@@ -23,6 +24,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 	 * @return
 	 */
 	@Override
+	@Transactional
 	public List<Employee> findAllEmployees(){
 		return employeeRepository.findAll();
 	}
@@ -33,6 +35,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 	 * @return
 	 */
 	@Override
+	@Transactional
 	public Employee findEmployeeById(UUID id) {
 		return employeeRepository.findEmployeeById(id);
 	}
@@ -42,6 +45,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 	 * @param employee
 	 */
 	@Override
+	@Transactional
 	public void saveEmployee(Employee employee) {
 		employeeRepository.saveAndFlush(employee);
 	}
@@ -51,6 +55,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 	 * @param employee
 	 */
 	@Override
+	@Transactional
 	public void deleteEmployee(Employee employee) {
 		employeeRepository.delete(employee);
 	}
