@@ -23,11 +23,11 @@ public class AttendanceController {
 	
 	@PostMapping("/mark")
 	public String markAttendance() {
-		return "";
+		return "attendance";
 	}
 	
 	@GetMapping("/view")
 	public String viewAttendance() {
-		return "";
+		return "attendance";
 	}
 }
