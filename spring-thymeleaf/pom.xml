@@ -50,6 +50,11 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>6.1.6</version>
 		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty.toolchain</groupId>
+			<artifactId>jetty-jakarta-servlet-api</artifactId>
+			<version>5.0.2</version>
+		</dependency>
 		
 	</dependencies>
 	
