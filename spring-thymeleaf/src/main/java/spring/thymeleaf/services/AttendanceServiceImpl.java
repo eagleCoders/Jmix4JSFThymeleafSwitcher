@@ -80,12 +80,13 @@ public class AttendanceServiceImpl implements AttendanceService {
 	 */
 	@Override
 	@Transactional
-	public void markAttendance(Employee employee, Date date) {
+	public Attendance markAttendance(Employee employee, Date date) {
 		Attendance attendance = new Attendance();
 		attendance.setEmployee(employee);
 		attendance.setDate(date);
 		attendance.setTime(new Time(System.currentTimeMillis()));
 		
 		attendanceRepository.saveAndFlush(attendance);
+		return attendance;
 	}
 }

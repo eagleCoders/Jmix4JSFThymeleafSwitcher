@@ -18,7 +18,7 @@ public interface AttendanceService {
 	
 	public List<Attendance> findAttendanceByDate(Date date);
 	
-	public void markAttendance(Employee employee, Date date);
+	public Attendance markAttendance(Employee employee, Date date);
 	
 	public void saveAttendance(Attendance attendance);
 	
