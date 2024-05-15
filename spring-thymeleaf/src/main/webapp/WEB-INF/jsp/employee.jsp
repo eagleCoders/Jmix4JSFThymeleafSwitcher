@@ -16,6 +16,8 @@
 				<th>ID</th>
 				<th>Name</th>
 				<th>Department</th>
+				<th>Mark Attendance</th>
+				<th>View Attendance</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -26,6 +28,8 @@
 				<td><span th:text="${employee.id}"> ID </span></td>
 				<td><span th:text="${employee.name}"> Name </span></td>
 				<td><span th:text="${employee.department.name}"> Department </span></td>
+				<td><a href="/attendance/mark">Mark Attendance</a></td>
+				<td><a href="/attendance/view">View Attendance</a></td>
 			</tr>
 		</tbody>
 	</table>

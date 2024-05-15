@@ -13,17 +13,17 @@
 	<table>
 		<thead>
 			<tr>
-				<th>ID</th>
+				<th>Date</th>
 				<th>Name</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:if="${departments.empty}">
-				<td colspan="2">No Department Available</td>
+			<tr th:if="${attendances.empty}">
+				<td colspan="2">No Attendance Available</td>
 			</tr>
-			<tr th:each="department : ${departments}">
-				<td><span th:text="${department.id}"> ID </span></td>
-				<td><span th:text="${department.name}"> Name </span></td>
+			<tr th:each="attendance : ${attendances}">
+				<td><span th:text="${attendance.date}"> date </span></td>
+				<td><span th:text="${department.employee.name}"> Name </span></td>
 			</tr>
 		</tbody>
 	</table>
