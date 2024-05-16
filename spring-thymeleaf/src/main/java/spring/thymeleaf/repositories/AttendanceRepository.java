@@ -21,7 +21,7 @@ import common.beans.Employee;
 @Repository
 public interface AttendanceRepository extends JpaRepository<Attendance, UUID> {
 	
-	@Query("SElECT u from common.beans.Attendance u where u.employee = :employee")
+	@Query("SElECT u from common.beans.Attendance u where u.employee.id = :employee")
 	List<Attendance> findAttendanceByEmployee(@Param("employee")  Employee employee);
 	
 	@Query("SElECT u from common.beans.Attendance u where u.date = :date")

@@ -28,8 +28,8 @@
 				<td><span th:text="${employee.id}"> ID </span></td>
 				<td><span th:text="${employee.name}"> Name </span></td>
 				<td><span th:text="${employee.department.name}"> Department </span></td>
-				<td><a th:href="@{/attendance/mark{emp}(emp=${employee})}">Mark Attendance</a></td>
-				<td><a th:href="@{/attendance/view/{emp}(emp=${employee})}">View Attendance</a></td>
+				<td><a th:href="@{/attendance/mark{empId}(empId=${employee.id})}">Mark Attendance</a></td>
+				<td><a th:href="@{/attendance/view/{empId}(empId=${employee.id})}">View Attendance</a></td>
 			</tr>
 		</tbody>
 	</table>
